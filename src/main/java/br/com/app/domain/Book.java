@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -21,12 +22,15 @@ public class Book {
 	private Integer id;
 	
 	@Column(name = "title")
+	@NotBlank(message = "title cannot be blank")
 	private String title;
 	
 	@Column(name = "publishing_company")
+	@NotBlank(message = "publishing company cannot be blank")
 	private String publishingCompany;
 	
 	@Column(name = "photo")
+	@NotBlank(message = "photo cannot be blank")
 	private String photo;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
