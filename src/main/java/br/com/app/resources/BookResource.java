@@ -44,7 +44,7 @@ public class BookResource {
 	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity delete(@PathVariable(name = "id") Integer id) {
-		return ResponseEntity.noContent();
+		return ResponseEntity.noContent().build();
 	}
 	
 	
