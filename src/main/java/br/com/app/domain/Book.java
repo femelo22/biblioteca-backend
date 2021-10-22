@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import br.com.app.domain.dto.BookDTO;
+
 
 @Entity
 @Table(name = "book")
@@ -36,6 +38,17 @@ public class Book {
 	@ElementCollection(fetch = FetchType.EAGER)
 	@Column(name = "authors")
 	private List<String> authors;
+	
+	public Book() {
+		
+	}
+	
+	public Book(BookDTO dto) {
+		this.title = dto.getTitle();
+		this.publishingCompany = dto.getPublishingCompany();
+		this.photo = dto.getPhoto();
+		this.authors = dto.getAuthors();
+	}
 	
 	public Integer getId() {
 		return id;
